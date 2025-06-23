@@ -1,7 +1,2 @@
 [compatibility]
-# Set the Python version explicitly if needed.
-# For example, if you used Python 3.9 or 3.10 to train your model
-# and want to ensure that version is used in deployment.
-# Otherwise, Streamlit Cloud will try to infer a compatible one.
-# For TensorFlow 2.12.0, Python 3.11 is typically well-supported.
 python_version = 3.11
