@@ -1,4 +1,4 @@
 streamlit
-tensorflow-cpu # Changed to a known stable and widely available version
+tensorflow==2.9.0 # Changed to a widely compatible TensorFlow version
 numpy
 Pillow
