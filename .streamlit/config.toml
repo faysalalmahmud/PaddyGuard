@@ -1,2 +1,2 @@
 [compatibility]
-python_version = "3.9" # Set to Python 3.9 for broader TensorFlow compatibility
+python_version = "3.11" # Set to Python 3.9 for broader TensorFlow compatibility
