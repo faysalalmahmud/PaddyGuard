@@ -8,7 +8,7 @@ from PIL import Image
 # IMPORTANT: Replace 'your_model_directory' with the actual path to your saved model directory.
 # Ensure your 'saved_model' directory (e.g., 'my_paddy_disease_model') is in the same
 # directory as this Python script, or provide the full path to it.
-MODEL_PATH = 'paddy_disease_saved_model' # Example: If your model is in 'my_paddy_disease_model' folder
+MODEL_PATH = 'paddyguard_saved_model' # Example: If your model is in 'my_paddy_disease_model' folder
 # If your model is saved within a subdirectory, e.g., 'Paddy Disease Detection/paddy_disease_saved_model'
 # then update MODEL_PATH accordingly:
 # MODEL_PATH = 'Paddy Disease Detection/paddy_disease_saved_model'
