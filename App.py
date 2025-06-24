@@ -92,12 +92,12 @@ def main():
                 # st.code(f"Model output keys: {predictions_output.keys()}", language='python')
                 predictions = list(predictions_output.values())[0].numpy()
 
-                # --- DEBUGGING OUTPUT (for analyzing model's raw output) ---
-                st.subheader("Debugging Info (Expand to see model output)")
-                with st.expander("Raw Model Predictions"):
-                    st.code(f"Predictions shape: {predictions.shape}", language='python')
-                    st.code(f"Predictions values: {predictions}", language='python')
-                # --- END DEBUGGING OUTPUT ---
+                # # --- DEBUGGING OUTPUT (for analyzing model's raw output) ---
+                # st.subheader("Debugging Info (Expand to see model output)")
+                # with st.expander("Raw Model Predictions"):
+                #     st.code(f"Predictions shape: {predictions.shape}", language='python')
+                #     st.code(f"Predictions values: {predictions}", language='python')
+                # # --- END DEBUGGING OUTPUT ---
 
                 # Post-processing the predictions:
                 # Ensure the predictions array is in the correct shape for argmax.
