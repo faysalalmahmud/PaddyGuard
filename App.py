@@ -120,6 +120,7 @@ def main():
                 predicted_class_name = CLASS_NAMES[predicted_class_index]
 
                 # Display the prediction and confidence
+                st.write("classified") # 
                 st.success(f"Prediction: **{predicted_class_name.replace('_', ' ').title()}**")
                 st.write(f"Confidence: **{confidence:.2f}%**")
 
