@@ -5,20 +5,12 @@ import numpy as np
 from PIL import Image
 
 # --- Configuration ---
-# IMPORTANT: Replace 'your_model_directory' with the actual path to your saved model directory.
-# Ensure your 'saved_model' directory (e.g., 'my_paddy_disease_model') is in the same
-# directory as this Python script, or provide the full path to it.
-MODEL_PATH = 'paddyguard_saved_model' # Example: If your model is in 'my_paddy_disease_model' folder
-# If your model is saved within a subdirectory, e.g., 'Paddy Disease Detection/paddy_disease_saved_model'
-# then update MODEL_PATH accordingly:
-# MODEL_PATH = 'Paddy Disease Detection/paddy_disease_saved_model'
+MODEL_PATH = 'paddyguard_saved_model' # Path to your saved model directory
 
 
 # Define the image size your model expects.
-# You need to replace these with the actual input shape of your trained CNN model.
-# For example, if your model was trained on 224x224 RGB images, set IMAGE_SIZE = (224, 224)
-IMAGE_SIZE = (224, 224) # Placeholder: Adjust this to your model's input size
-# Updated CLASS_NAMES based on your input
+IMAGE_SIZE = (224, 224)
+# Updated CLASS_NAMES
 CLASS_NAMES = ['bacterial_leaf_blight', 'bacterial_leaf_streak', 'bacterial_panicle_blight', 'blast', 'brown_spot', 'dead_heart', 'downy_mildew', 'hispa', 'normal', 'tungro']
 
 # --- Function to load the model ---
@@ -30,31 +22,30 @@ def load_model():
     TensorFlow/Keras versions."""
     try:
         # Attempt to load the SavedModel.
-        # Ensure the MODEL_PATH correctly points to your saved model directory.
         model = tf.saved_model.load(MODEL_PATH)
-        st.success(f"Model loaded successfully from '{MODEL_PATH}'!")
+        # st.success(f"Model loaded successfully from '{MODEL_PATH}'!")
         return model
     except Exception as e:
         # Display an error message if model loading fails.
-        st.error(f"Error loading model: {e}")
-        st.info("Please ensure your model directory is correctly specified and accessible. "
-                "Verify the exact path to your 'saved_model' folder.")
-        # Provide detailed traceback for debugging
-        st.code(f"Detailed model loading error traceback: {e}", language='python')
+        # st.error(f"Error loading model: {e}")
+        # st.info("Please ensure your model directory is correctly specified and accessible. "
+        #         "Verify the exact path to your 'saved_model' folder.")
+        # # Provide detailed traceback for debugging
+        # st.code(f"Detailed model loading error traceback: {e}", language='python')
         return None
 
 # --- Main Streamlit App ---
 def main():
     # Set basic page configuration for the Streamlit app
     st.set_page_config(
-        page_title="Paddy Guard", # Title for the browser tab
+        page_title="Paddy Guard",            # Title for the browser tab
         page_icon="🌾",                     # Icon for the browser tab
         layout="centered"                   # Centered layout for better aesthetics
     )
 
     # Display the main title and a brief description
     st.title("🌾 Paddy Guard")
-    st.subheader('Developed with ❤️ by Faysal Al Mahmud')
+    st.subheader('A Deep Learning Model for Paddy Leaf Disease Detection and Classification')
     st.write("Upload an image of a paddy leaf to detect and classify diseases.")
 
     # Load the model using the cached function
@@ -65,7 +56,7 @@ def main():
         # File uploader widget for image selection
         uploaded_file = st.file_uploader(
             "Choose an image...", # User prompt
-            type=["jpg", "jpeg", "png"] # Accepted file types
+            type=["jpg", "jpeg"] # Accepted file types
         )
 
         # Process the uploaded file if one exists
@@ -85,12 +76,6 @@ def main():
                 img_array = image.img_to_array(img)
                 # 3. Add a batch dimension (models expect input in batches, even for a single image).
                 img_array = np.expand_dims(img_array, axis=0)
-
-                # 4. Normalization: Based on your Colab code, the model likely expects
-                #    pixel values in the 0-255 range, or has a Rescaling layer built into it.
-                #    Therefore, we are commenting out the explicit 0-1 normalization here
-                #    to match your training/testing setup.
-                # img_array = img_array / 255.0 # Uncomment if your model expects 0-1 scaled inputs
 
                 # Convert the NumPy array to a TensorFlow tensor, specifying float32 dtype
                 input_tensor = tf.constant(img_array, dtype=tf.float32)
