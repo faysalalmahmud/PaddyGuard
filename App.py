@@ -46,8 +46,7 @@ def main():
     # Display the main title and a brief description
     st.title("🌾 Paddy Guard")
     st.subheader('A Deep Learning Model for Paddy Leaf Disease Detection and Classification')
-    st.write("Upload an image of a paddy leaf to detect and classify diseases.")
-    st.footer("Developed by [Faysal Al Mahmud]")  # Footer with developer's name
+    st.write("Upload an image of a paddy leaf to detect and classify diseases.") # Footer with developer's name
 
     # Load the model using the cached function
     model = load_model()
