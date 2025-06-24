@@ -44,7 +44,7 @@ def main():
     )
 
     # Display the main title and a brief description
-    st.title("🌾 Paddy Guard")
+    st.title("🌾 Paddy Guard",)
     st.subheader('A Deep Learning Model for Paddy Leaf Disease Detection and Classification')
     st.write("Upload an image of a paddy leaf to detect and classify diseases.") # Footer with developer's name
 
@@ -133,6 +133,40 @@ def main():
     else:
         # Message displayed if the model failed to load
         st.warning("Model could not be loaded. Please check the `MODEL_PATH` and ensure your model directory exists and your TensorFlow installation is correct.")
+
+# --- Footer Section ---
+    st.markdown("---") # Add a horizontal line for separation
+    st.markdown(
+        """
+        <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #f1f1f1; /* Light gray background */
+            color: #808080; /* Darker gray text */
+            text-align: center;
+            padding: 10px;
+            font-size: 0.8em;
+            border-top: 1px solid #e1e1e1; /* Light border on top */
+        }
+        .footer a {
+            color: #007bff; /* Link color */
+            text-decoration: none; /* No underline */
+        }
+        .footer a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+        </style>
+        <div class="footer">
+            <p>Developed by Faysal Al Mahmud | © 2025 PaddyGuard</p>
+            <p>For educational purposes only. Not a substitute for professional agricultural advice.</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+    # --- End Footer Section ---
 
 if __name__ == "__main__":
     main()
