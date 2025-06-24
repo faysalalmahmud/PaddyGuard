@@ -160,7 +160,7 @@ def main():
         }
         </style>
         <div class="footer">
-            <p>Developed by Faysal Al Mahmud | © 2025 PaddyGuard</p>
+            <p>Developed by <b>Faysal Al Mahmud </b> | © 2025 PaddyGuard</p>
             <p>For educational purposes only. Not a substitute for professional agricultural advice.</p>
         </div>
         """,
